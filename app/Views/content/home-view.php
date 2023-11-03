@@ -9,7 +9,10 @@
 </head>
 
 <body>
+    <?php require_once "./app/Views/inc/header.php" ?>
+    <?php require_once "./app/Views/content/carrusel.php" ?>
 
+    <?php require_once "./app/Views/inc/footer.php" ?>
 
 </body>
 
