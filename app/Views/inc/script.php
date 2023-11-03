@@ -1,6 +1,6 @@
 <script src="<?php echo APP_URL; ?>">
-    app / Views / js / ajax.js
+    app / views / js / ajax.js
 </script>
 <script src="<?php echo APP_URL; ?>">
-    app / Views / js / main.js
+    app / views / js / main.js
 </script>

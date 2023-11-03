@@ -8,16 +8,16 @@
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="./app/Views/img/img1.svg" class="d-block w-100" alt="...">
+            <img src="<?php echo APP_URL; ?>app/views/img/img1.svg" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="./app/Views/img/img2.svg" class="d-block w-100" alt="...">
+            <img src="<?php echo APP_URL; ?>app/views/img/img2.svg" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="./app/Views/img/img3.svg" class="d-block w-100" alt="...">
+            <img src="<?php echo APP_URL; ?>app/views/img/img3.svg" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="./app/Views/img/img4.svg" class="d-block w-100" alt="...">
+            <img src="<?php echo APP_URL; ?>app/views/img/img4.svg" class="d-block w-100" alt="...">
         </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
