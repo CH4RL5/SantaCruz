@@ -51,7 +51,7 @@
                        <a class="button is-link" href="<?php echo APP_URL; ?>register/">
                            <strong>Sign up</strong>
                        </a>
-                       <a class="button is-light" href="<?php echo APP_URL; ?>login/">
+                       <a class="button is-dark" href="<?php echo APP_URL; ?>login/">
                            Log in
                        </a>
                    </div>
