@@ -24,7 +24,7 @@
                                         Forgot Password?
                                     </a>
                                 </div>
-                                <input id="password" type="password" class="form-control" name="password" required>
+                                <input id="password" type="password" class="form-control" name="password" pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100" required>
                                 <div class="invalid-feedback">
                                     Password is required
                                 </div>
