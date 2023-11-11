@@ -8,7 +8,7 @@
                 <div class="card shadow-lg">
                     <div class="card-body p-5">
                         <h1 class="fs-4 card-title fw-bold mb-4">Login</h1>
-                        <form method="POST" class="needs-validation" novalidate="" autocomplete="off">
+                        <form method="POST" class="needs-validation FormAjax" novalidate="" autocomplete="off">
                             <div class="mb-3">
                                 <label class="mb-2 text-muted" for="email">E-Mail Address</label>
                                 <input id="email" type="email" class="form-control" name="email" value="" required autofocus>
@@ -54,5 +54,3 @@
         </div>
     </div>
 </section>
-
-<script src="<?php echo APP_URL; ?>app/views/js/login.js"></script>

@@ -37,5 +37,3 @@
         </div>
     </div>
 </section>
-
-<script src="<?php echo APP_URL; ?>app/views/js/login.js"></script>
