@@ -1,4 +1,5 @@
 <?php require_once "./app/views/inc/navbar-admin.php"; ?>
+
 <div class="container is-fluid mb-6">
 	<h1 class="title">Products</h1>
 	<h2 class="subtitle">New Product</h2>
@@ -33,8 +34,8 @@
 			</div>
 			<div class="column">
 				<div class="control">
-					<label>Existence</label>
-					<input class="input" type="text" name="existence_product" maxlength="70">
+					<label>Stock</label>
+					<input class="input" type="text" name="stock_product" pattern="[0-9]{4,20}" maxlength="70" required>
 				</div>
 			</div>
 		</div>
@@ -56,7 +57,7 @@
 			<div class="column">
 				<div class="file has-name is-boxed">
 					<label class="file-label">
-						<input class="file-input" type="file" name="usuario_foto" accept=".jpg, .png, .jpeg">
+						<input class="file-input" type="file" name="photo_product" accept=".jpg, .png, .jpeg">
 						<span class="file-cta">
 							<span class="file-label">
 								Select a picture

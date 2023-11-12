@@ -8,7 +8,7 @@ use app\Controllers\productController;
 if (isset($_POST['module_product'])) {
     $insProduct = new productController();
     if ($_POST['module_product'] == "register") {
-        echo $insUser->registerProductController();
+        echo $insProduct->registerProductController();
     }
 } else {
     session_destroy();

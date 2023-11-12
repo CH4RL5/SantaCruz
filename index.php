@@ -10,11 +10,10 @@ if (isset($_GET['views'])) {
 }
 ?>
 <!DOCTYPE html>
-
 <html lang="es">
 
 <head>
-    <?php require_once "./app/views/inc/head.php" ?>
+    <?php require_once "./app/Views/inc/head.php" ?>
 </head>
 
 <body>
