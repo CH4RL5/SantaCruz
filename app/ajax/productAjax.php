@@ -12,5 +12,5 @@ if (isset($_POST['module_product'])) {
     }
 } else {
     session_destroy();
-    header("Location: " . APP_URL . "login");
+    header("Location: " . APP_URL . "login/");
 }

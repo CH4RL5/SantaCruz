@@ -1,7 +1,10 @@
+
 const forms_ajax = document.querySelectorAll(".FormAjax");
 
 forms_ajax.forEach(forms => {
+
     forms.addEventListener("submit", function (e) {
+
         e.preventDefault();
 
         Swal.fire({
@@ -11,7 +14,8 @@ forms_ajax.forEach(forms => {
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, make it!", cancelButtonText: "No, cancel!"
+            confirmButtonText: "Yes, make it!",
+            cancelButtonText: "No, cancel!"
         }).then((result) => {
             if (result.isConfirmed) {
 

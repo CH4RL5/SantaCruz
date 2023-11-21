@@ -8,7 +8,7 @@
                 <div class="card shadow-lg">
                     <div class="card-body p-5">
                         <h1 class="fs-4 card-title fw-bold mb-4">Register</h1>
-                        <form method="POST" class="FormAjax needs-validation" novalidate="" autocomplete="off">
+                        <form class="FormAjax" action="<?php echo APP_URL; ?>app/ajax/userAjax.php" method="POST" autocomplete="off" enctype="multipart/form-data">
                             <input type="hidden" name="module_user" value="register">
                             <div class="mb-3">
                                 <label class="mb-2 text-muted" for="name">Name</label>

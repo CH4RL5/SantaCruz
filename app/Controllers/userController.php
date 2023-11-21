@@ -14,7 +14,7 @@ class userController extends mainModel
         $email = $this->clearChain($_POST['email_user']);
         $password = $this->clearChain($_POST['password_user']);
 
-        #verificacion de campos obligatorios#
+        #verificacion de fields obligatorios#
         if ($name == " " || $email == " " || $password == " ") {
             $alert = [
                 "type" => "simple",
@@ -45,9 +45,21 @@ class userController extends mainModel
             ];
             return json_encode($alert);
             exit();
+        } else {
+            $password = password_hash($password, PASSWORD_BCRYPT, ["cost" => 10]);
         }
         if ($email != "") {
             if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $check_email = $this->execConsult("SELECT user_email FROM users WHERE user_email='$email'");
+                if ($check_email->rowCount() > 0) {
+                    $alert = [
+                        "type" => "simple",
+                        "title" => "an unexpected error occurred",
+                        "text" => "The email already is registered",
+                        "icon" => "error"
+                    ];
+                    return json_encode($alert);
+                }
             } else {
                 $alert = [
                     "type" => "simple",
@@ -59,5 +71,57 @@ class userController extends mainModel
                 exit();
             }
         }
+        $user_data_reg = [
+            [
+                "field_name" => "user_name",
+                "field_marker" => ":name",
+                "field_value" => $name
+            ],
+            [
+                "field_name" => "user_email",
+                "field_marker" => ":Email",
+                "field_value" => $email
+            ],
+            [
+                "field_name" => "user_password",
+                "field_marker" => ":Password",
+                "field_value" => $password
+            ],
+            [
+                "field_name" => "user_user",
+                "field_marker" => ":User",
+                "field_value" => 'user'
+            ],
+            [
+                "field_name" => "user_created",
+                "field_marker" => ":Created",
+                "field_value" => date("Y-m-d H:i:s")
+            ],
+            [
+                "field_name" => "user_updated",
+                "field_marker" => ":Updated",
+                "field_value" => date("Y-m-d H:i:s")
+            ]
+        ];
+
+        $register_user = $this->saveData("users", $user_data_reg);
+
+        if ($register_user->rowCount() == 1) {
+            $alert = [
+                "type" => "clean",
+                "title" => "user registered successfully",
+                "text" => "The user " . $name . " " . " was registered successfully",
+                "icon" => "success"
+            ];
+        } else {
+            $alert = [
+                "type" => "simple",
+                "title" => "",
+                "text" => "No se pudo registrar el user, por favor intente nuevamente",
+                "icon" => "error"
+            ];
+        }
+        return json_encode($alert);
+        exit();
     }
 }

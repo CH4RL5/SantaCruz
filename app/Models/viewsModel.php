@@ -13,7 +13,7 @@ class viewsModel
             } else {
                 $content = "404";
             }
-        } elseif ($views == "home" || $views == "index") {
+        } else if ($views == "home" || $views == "index") {
             $content = "home";
         } else {
             $content = "404";
