@@ -80,3 +80,23 @@ function alert_ajax(alert) {
 
     }
 }
+/*btn for close session*/
+let btn_exit = document.getElementById("btn_exit");
+btn_exit.addEventListener("click", function (e) {
+    e.preventDefault();
+    Swal.fire({
+        title: "Do you want to log out of the system?",
+        text: "The session will be closed and you will exit the system",
+        icon: "question ",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, exit!",
+        cancelButtonText: "No, cancel!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            let url = this.getAttribute("href");
+            window.location.href = url;
+        }
+    });
+});

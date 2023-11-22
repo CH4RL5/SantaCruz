@@ -6,6 +6,7 @@ use app\Models\mainModel;
 
 class productController extends mainModel
 {
+    #Controller for register products#
     public function registerProductController()
     {
         $name = $this->clearChain($_POST['name_product']);
@@ -244,5 +245,29 @@ class productController extends mainModel
         }
 
         return json_encode($alert);
+    }
+    #Controller for list products#
+    public function listProductController($page, $registers, $url, $search)
+    {
+        $page = $this->clearChain($page);
+        $registers = $this->clearChain($registers);
+
+        $url = $this->clearChain($url);
+        $url = APP_URL . $url . "/";
+
+        $search = $this->clearChain($search);
+        $table = "";
+
+        $page = (isset($page) && $page > 0) ? (int) $page : 1;
+
+        $start = ($page > 0) ? (($page * $registers) - $registers) : 0;
+
+        if(isset($search)&& $search!=""){
+
+        }else{
+            $consult_data ="SELECT * FROM products";
+
+            $consult_total ="";
+        }
     }
 }
