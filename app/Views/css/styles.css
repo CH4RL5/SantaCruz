@@ -12,3 +12,74 @@ html {
     justify-content: center;
     align-items: center;
 }
+
+
+
+/* Estilos CSS para el fondo de pantalla */
+.contenedorReport {
+    background-image: url('https://img.nhs-info.com/heroes/santa_cruz_skateboards_classic_dot_desktop_1699999575.jpg');
+    background-size: cover;
+    /* Ajustar la imagen al tamaño de la ventana */
+    background-position: center;
+    /* Centrar la imagen */
+    background-repeat: no-repeat;
+    /* No repetir la imagen */
+    height: 100vh;
+    /* Hacer que el fondo cubra toda la altura de la ventana */
+    margin: 0;
+    /* Eliminar márgenes predeterminados del cuerpo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+/* Estilos CSS para txt */
+.contenedorReport {
+    text-align: center;
+
+    background-color: #f0f0f0;
+    /* Color de fondo del cuerpo */
+    /* Color de texto principal */
+    font-family: Arial, sans-serif;
+    /* Tipo de fuente del texto */
+    font-size: 1.2em;
+    /* Tamaño de letra del párrafo */
+}
+
+
+/* Estilos CSS para la imagen */
+.imgReport {
+    width: 77px;
+    /* Ancho de la imagen */
+    height: auto;
+    /* Altura automática para mantener la proporción */
+    margin: 0;
+    /* Eliminar márgenes */
+    padding: 0;
+    /* Eliminar relleno */
+    position: absolute;
+    /* Posicionamiento absoluto */
+    top: 0;
+    /* Alinear en la parte superior */
+    left: 0;
+    /* Alinear a la izquierda */
+}
+
+
+
+/* Estilos CSS para dar formato al cuadro de texto */
+input[type="text"] {
+    width: 300px;
+    /* Ancho del cuadro de texto */
+    height: 100px;
+    /* Altura del cuadro de texto */
+    padding: 10px;
+    /* Relleno interno del cuadro de texto */
+    box-sizing: border-box;
+    /* Incluir el relleno y el borde en el ancho total */
+    border: 5px;
+    margin: 5px;
+}

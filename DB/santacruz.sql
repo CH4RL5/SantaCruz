@@ -1,8 +1,3 @@
-CREATE DATABASE IF NOT EXISTS `santacruz`
-/*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */
-/*!80016 DEFAULT ENCRYPTION='N' */
-;
-USE `santacruz`;
 -- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: localhost    Database: santacruz
@@ -48,16 +43,26 @@ CREATE TABLE `products` (
   PRIMARY KEY (`product_id`),
   UNIQUE KEY `product_id_UNIQUE` (`product_id`),
   UNIQUE KEY `product_name_UNIQUE` (`product_name`)
-) ENGINE = InnoDB AUTO_INCREMENT = 2 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 DEFAULT CHARSET = utf8mb3 COLLATE = utf8mb3_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */
 ;
 --
 -- Dumping data for table `products`
 --
+-- ORDER BY:  `product_id`
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */
 ;
-INSERT INTO `products`
+INSERT INTO `products` (
+    `product_id`,
+    `product_name`,
+    `product_type`,
+    `product_price`,
+    `product_stock`,
+    `product_code`,
+    `product_brand`,
+    `product_photo`
+  )
 VALUES (
     1,
     'Table santa cruz',
@@ -71,6 +76,27 @@ VALUES (
 /*!40000 ALTER TABLE `products` ENABLE KEYS */
 ;
 UNLOCK TABLES;
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */
+;
+/*!50503 SET character_set_client = utf8mb4 */
+;
+CREATE TABLE `users` (
+  `user_id` int NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(100) NOT NULL,
+  `user_email` varchar(100) NOT NULL,
+  `user_password` varchar(200) NOT NULL,
+  `user_user` varchar(30) NULL,
+  `user_direction` varchar(100) NULL,
+  `user_phone` varchar(10) NULL,
+  `user_photo` varchar(535) NULL,
+  `user_created` timestamp NOT NULL,
+  `user_updated` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `user_email_UNIQUE` (`user_email`)
+) ENGINE = InnoDB AUTO_INCREMENT = 33 DEFAULT CHARSET = utf8mb3 COLLATE = utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */
+;
 --
 -- Table structure for table `shop_product`
 --
@@ -85,19 +111,20 @@ CREATE TABLE `shop_product` (
   `id_producto` int NOT NULL,
   `quatity` varchar(45) NOT NULL,
   `amount` int NOT NULL,
-  `description` varchar(100) DEFAULT NULL,
+  `description` varchar(100) NULL,
   PRIMARY KEY (`id_compra_producto`),
   UNIQUE KEY `id_compra_producto_UNIQUE` (`id_compra_producto`),
   KEY `product_id_idx` (`id_producto`),
   KEY `user_id_idx` (`id_cliente`),
   CONSTRAINT `product_id` FOREIGN KEY (`id_producto`) REFERENCES `products` (`product_id`),
   CONSTRAINT `user_id` FOREIGN KEY (`id_cliente`) REFERENCES `users` (`user_id`)
-) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb3 COLLATE = utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */
 ;
 --
 -- Dumping data for table `shop_product`
 --
+-- ORDER BY:  `id_compra_producto`
 LOCK TABLES `shop_product` WRITE;
 /*!40000 ALTER TABLE `shop_product` DISABLE KEYS */
 ;
@@ -107,34 +134,25 @@ UNLOCK TABLES;
 --
 -- Table structure for table `users`
 --
-DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */
-;
-/*!50503 SET character_set_client = utf8mb4 */
-;
-CREATE TABLE `users` (
-  `user_id` int NOT NULL AUTO_INCREMENT,
-  `user_name` varchar(100) NOT NULL,
-  `user_email` varchar(100) NOT NULL,
-  `user_password` varchar(200) NOT NULL,
-  `user_user` varchar(30) DEFAULT NULL,
-  `user_direction` varchar(100) DEFAULT NULL,
-  `user_phone` varchar(10) DEFAULT NULL,
-  `user_photo` varchar(535) DEFAULT NULL,
-  `user_created` timestamp NOT NULL,
-  `user_updated` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`user_id`),
-  UNIQUE KEY `user_email_UNIQUE` (`user_email`)
-) ENGINE = InnoDB AUTO_INCREMENT = 2 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */
-;
 --
 -- Dumping data for table `users`
 --
+-- ORDER BY:  `user_id`
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */
 ;
-INSERT INTO `users`
+INSERT INTO `users` (
+    `user_id`,
+    `user_name`,
+    `user_email`,
+    `user_password`,
+    `user_user`,
+    `user_direction`,
+    `user_phone`,
+    `user_photo`,
+    `user_created`,
+    `user_updated`
+  )
 VALUES (
     1,
     'Administrador',
@@ -148,7 +166,7 @@ VALUES (
     '2023-11-21 03:15:43'
   ),
 (
-    31,
+    2,
     'Charlie Edson Serrano Calvillo',
     'disode_oficial@outlook.com',
     '$2y$10$RyhCU9dKOneBQ8brlBQZc.RvMdBAhaYz1sbiuCbLZbIDq/31/yWuO',
@@ -158,16 +176,22 @@ VALUES (
     NULL,
     '2023-11-21 03:38:35',
     '2023-11-21 03:38:35'
+  ),
+(
+    32,
+    'Angel',
+    'angel@gmail.com',
+    '$2y$10$aeqYXcJ095q7jlZG6iMCv.ZA01OcsU/dPPHzUx259FJrDxFNNOVku',
+    'user',
+    NULL,
+    NULL,
+    NULL,
+    '2023-11-22 03:19:00',
+    '2023-11-22 03:19:00'
   );
 /*!40000 ALTER TABLE `users` ENABLE KEYS */
 ;
 UNLOCK TABLES;
---
--- Dumping events for database 'santacruz'
---
---
--- Dumping routines for database 'santacruz'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */
 ;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */
@@ -184,4 +208,4 @@ UNLOCK TABLES;
 ;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */
 ;
--- Dump completed on 2023-11-21 21:12:04
+-- Dump completed on 2023-11-21 22:17:58
