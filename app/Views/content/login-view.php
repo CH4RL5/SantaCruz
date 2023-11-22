@@ -1,4 +1,5 @@
 <section class="h-100">
+
     <div class="container h-100">
         <div class="row justify-content-sm-center h-100">
             <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
@@ -8,7 +9,7 @@
                 <div class="card shadow-lg">
                     <div class="card-body p-5">
                         <h1 class="fs-4 card-title fw-bold mb-4">Login</h1>
-                        <form method="POST" class="needs-validation" novalidate="" autocomplete="off">
+                        <form method="POST" class="" action=" " autocomplete="off">
                             <div class="mb-3">
                                 <label class="mb-2 text-muted" for="email">E-Mail Address</label>
                                 <input id="email" type="email" class="form-control" name="email" value="" required autofocus>
@@ -55,4 +56,8 @@
     </div>
 </section>
 
-<script src="<?php echo APP_URL; ?>app/views/js/login.js"></script>
+<?php
+if (isset($_POST['email']) && isset($_POST['password'])) {
+    $insLogin->startSessionController();
+}
+?>

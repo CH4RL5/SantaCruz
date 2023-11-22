@@ -8,10 +8,11 @@
                 <div class="card shadow-lg">
                     <div class="card-body p-5">
                         <h1 class="fs-4 card-title fw-bold mb-4">Register</h1>
-                        <form method="POST" class="needs-validation" novalidate="" autocomplete="off">
+                        <form class="FormAjax" action="<?php echo APP_URL; ?>app/ajax/userAjax.php" method="POST" autocomplete="off" enctype="multipart/form-data">
+                            <input type="hidden" name="module_user" value="register">
                             <div class="mb-3">
                                 <label class="mb-2 text-muted" for="name">Name</label>
-                                <input id="name" type="text" class="form-control" name="name" value="" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name_user" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}" value="" required autofocus>
                                 <div class="invalid-feedback">
                                     Name is required
                                 </div>
@@ -19,7 +20,7 @@
 
                             <div class="mb-3">
                                 <label class="mb-2 text-muted" for="email">E-Mail Address</label>
-                                <input id="email" type="email" class="form-control" name="email" value="" required>
+                                <input id="email" type="email" class="form-control" name="email_user" value="" required>
                                 <div class="invalid-feedback">
                                     Email is invalid
                                 </div>
@@ -27,7 +28,7 @@
 
                             <div class="mb-3">
                                 <label class="mb-2 text-muted" for="password">Password</label>
-                                <input id="password" type="password" class="form-control" name="password" pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100" required>
+                                <input id="password" type="password" class="form-control" name="password_user" pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100" required>
                                 <div class="invalid-feedback">
                                     Password is required
                                 </div>
@@ -57,5 +58,3 @@
         </div>
     </div>
 </section>
-
-<script src="<?php echo APP_URL; ?>app/views/js/login.js"></script>

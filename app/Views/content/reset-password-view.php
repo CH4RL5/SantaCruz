@@ -44,5 +44,3 @@
         </div>
     </div>
 </section>
-
-<script src="js/login.js"></script>
