@@ -25,12 +25,12 @@ if (isset($_GET['views'])) {
     $viewsController = new viewsController();
     $views = $viewsController->getViewsController($url[0]);
     if ($views == "home" || $views == "404") {
-        require_once "./app/Views/content/".$views."-view.php";
+        require_once "./app/Views/content/" . $views . "-view.php";
     } else {
 
         require_once $views;
     }
-    require_once "./app/Views/inc/script.php"; 
+    require_once "./app/Views/inc/script.php";
     ?>
     <script src="https://cdn.userway.org/widget.js" data-account="Ra0cJrYiHy"></script>
 </body>
