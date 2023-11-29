@@ -71,7 +71,7 @@ class loginController extends mainModel
                                 if (headers_sent()) {
                                     echo "<script> window.location.href='" . APP_URL . "home/'; </script>";
                                 } else {
-                                    header("Location: " . APP_URL . "home/");
+                                    header("Location:" . APP_URL . "home/");
                                 }
                             }
                         } else {
